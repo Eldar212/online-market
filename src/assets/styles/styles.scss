@@ -1,0 +1,17 @@
+@import 'variables.scss';
+@import "header";
+a {
+    text-decoration: none;
+    color: #2c3e50;
+}
+.btn {
+    padding: $padding $padding*2;
+    background: #26ae68;
+    color: #fff;
+    border: 0px;
+    border-radius: $radius;
+}
+.body {
+    margin: 0px;
+}
+
