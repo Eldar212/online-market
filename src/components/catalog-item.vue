@@ -5,9 +5,9 @@
   <p class="catalogItem_name">{{product_data.name}}</p>
   <p class="catalogItem_price">Price: {{product_data.price}} P.</p>
   <button
-    class="catalogItem_add_to_card_btn btn"
+    class="catalogItem_add_to_card_btn"
     @click="addToCArt">
-    Add to cart
+    В корзину
   </button>
 </div>
 </template>
@@ -42,6 +42,15 @@ export default {
     margin-bottom: 8px *2;
     width: 290px;
     border-radius: 7px;
+  }
+  .catalogItem_add_to_card_btn {
+    background: #40bbc7;
+    border-radius: 7px;
+    height: 32px;
+    color: #fff;
+    border: none;
+    box-shadow: 0 0 8px 0 #e0e0e0;
+    font-size: large;
   }
   .catalogItem_image {
     width: 100px;

@@ -65,7 +65,7 @@ export default {
       this.ADD_TO_CART(data)
     },
     sortByCategories (category) {
-      this.sortedProducts = []
+      this.sortedProducts = [...this.PRODUCTS]
       const vm = this
       this.PRODUCTS.map(function (item) {
         if (item.category === category.name) {
@@ -78,28 +78,30 @@ export default {
       this.sotedProducts = [...this.PRODUCTS]
       if (value) {
         this.sotedProducts = this.sortedProducts.filter(function (item) {
-          return item.name.includes(value)
+          return item.name.toLowerCase().includes(value.toLowerCase())
         })
       } else {
         this.sotedProducts = this.PRODUCTS
       }
-    },
-    watch: {
-      SERCH_VALUE () {
-        this.sortProductsBySerchValue(this.SERCH_VALUE)
-      }
+    }
+  },
+  watch: {
+    SERCH_VALUE () {
+      this.sortProductsBySerchValue(this.SERCH_VALUE)
     }
   },
   mounted () {
     this.GET_PRODUCTS_FROM_API()
+      .then((response) => {
+        if (response.data) {
+          this.sortProductsBySerchValue(this.SERCH_VALUE)
+        }
+      })
   }
 }
 </script>
 
 <style lang="scss">
-  .catalog {
-
-  }
   .catalog {
     width: 900px;
     position: absolute;

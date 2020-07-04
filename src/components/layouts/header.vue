@@ -2,7 +2,7 @@
 <header class="header">
   <router-link :to="{name: 'mainPage'}">
     <span class="logo">
-      Logo
+      <img src="../../../public/img/icons/logo.png" alt="">
     </span>
   </router-link>
   <div class="search">
@@ -11,9 +11,7 @@
       class="search-field"
       v-model="searchValue"
     >
-    <button
-      class="seacrh-btn"
-    >
+    <button class="seacrh-btn">
       <img
         @click="search(searchValue)"
         class="seacrh-icon" src="../../../public/img/icons/search-icon.png" alt=""
@@ -22,16 +20,20 @@
 
   </div>
   <ul class="main-header-list">
-    <li>
-      <img src="../../../public/img/icons/home-icon.png" alt="">
-      <p>Главная</p>
-    </li>
-    <li>
-      <img src="../../../public/img/icons/icon-categories.png" alt="">
-      <p>Категории</p>
-    </li>
+    <router-link :to="{name: 'mainPage'}">
+      <li>
+        <img src="../../../public/img/icons/home-icon.png" alt="">
+        <p>Главная</p>
+      </li>
+    </router-link>
+    <router-link :to="{name: 'catalog'}">
+      <li>
+        <img src="../../../public/img/icons/icon-categories.png" alt="">
+        <p>Каталог</p>
+      </li>
+    </router-link>
   </ul>
-  <div class="cart">
+  <div class="toCart">
     <img src="../../../public/img/icons/cart-icon.png" alt="">
     <router-link :to="{name: 'cart', params: {cart_data: CART}}">
       <p>Корзина {{CART.length}}</p>
